@@ -45,7 +45,7 @@ def startSearch(player_id):  # get room information
 
 @app.route('/register/<email>')
 def register_new(email):  # register new users
-   return mdb.insert_new_user(email)
+   return str(mdb.insert_new_user(email))
 
 
 def check_redundancy(email):
