@@ -1,8 +1,8 @@
-import pymongo as mongodb
+from pymongo import MongoClient
 
-client = mongodb.MongoClient("mongodb+srv://geekyUtkarsh99:utkarsh99@cluster0.hkw3v.mongodb.net/test")
+client = MongoClient("mongodb+srv://geekyUtkarsh99:utkarsh99@cluster0.hkw3v.mongodb.net/test")
 
-database= client.get_database('players')
+database= client['players']
 
 
 def checkDataBaseExistance(db):
