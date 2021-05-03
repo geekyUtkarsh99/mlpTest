@@ -8,3 +8,8 @@ database= client.get_database('players')
 def checkDataBaseExistance(db):
     return database.list_collection_names()
 
+
+def getUser():
+    users = database.get_collection("users")
+    return users
+
