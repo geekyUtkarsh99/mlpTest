@@ -11,5 +11,10 @@ def checkDataBaseExistance(db):
 
 def getUser():
     users = database['users']
-    return users.find()
-
+    data = []
+    cols = users.find()
+    i = 0
+    for u in cols:
+        data[i] = u
+        i+=1
+    return data

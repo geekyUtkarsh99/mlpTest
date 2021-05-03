@@ -24,7 +24,7 @@ def home():
 
 @app.route('/checkSet', methods=['GET'])
 def getDataBases():
-    return str(mdb.getUser())
+    return str(mdb.checkDataBaseExistance(None))
 
 # search players information
 @app.route('/pId/<unique_id>')
