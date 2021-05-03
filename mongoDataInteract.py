@@ -6,5 +6,5 @@ database = client['players']
 
 
 def checkDataBaseExistance(database):
-    return database.list_collection_names()
+    return database
 
