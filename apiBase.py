@@ -24,8 +24,7 @@ def home():
 
 @app.route('/checkSet', methods=['GET'])
 def getDataBases():
-    return mdb.getUser()
-
+    return jsonify(mdb.getUser())
 
 # search players information
 @app.route('/pId/<unique_id>')
