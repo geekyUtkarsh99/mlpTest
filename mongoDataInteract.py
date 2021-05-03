@@ -13,7 +13,7 @@ def checkDataBaseExistance(db):
 def getUser():
     users = database['users']
     data = []
-    cols = users.find({"pid1"})
+    cols = users.find({"_id":0})
     i = 0
     for u in cols:
         data.append(u)
