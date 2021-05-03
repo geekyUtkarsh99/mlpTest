@@ -34,3 +34,4 @@ def insert_new_user(email):
     dats = []
     for i in data:
         dats.append(i)
+    return dats
