@@ -2,6 +2,7 @@ from flask import Flask as fsk
 import dataHandle as dh
 import threading
 from flask import jsonify
+import mongoDataInteract as mdb
 import json
 
 app = fsk(__name__)
@@ -19,6 +20,11 @@ player = json.load(open('players.json'))
 @app.route('/', methods=['GET'])
 def home():
     return 'initialize home'
+
+
+@app.route('/checkSet', methods=['GET'])
+def getDataBases():
+    return str(mdb.checkDataBaseExistance(None))
 
 
 # search players information
@@ -63,4 +69,3 @@ def check_redundancy(email):
 
 if __name__ == "__main__":
     app.run(port=8081, host='0.0.0.0')
-
