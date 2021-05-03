@@ -5,6 +5,8 @@ client = MongoClient("mongodb+srv://geekyUtkarsh99:utkarsh99@cluster0.hkw3v.mong
 
 database= client['players']
 
+users = database['users']
+
 
 def checkDataBaseExistance(db):
     return database.list_collection_names()
@@ -19,3 +21,14 @@ def getUser():
         data.append(u)
         i+=1
     return data
+
+
+def insert_new_user(email):
+    new_player = {
+        email: {
+            "x": 0.0,
+            "y": 0.0
+        }
+    }
+    end_result = users.insert_one(new_player)
+    return end_result

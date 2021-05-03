@@ -45,19 +45,7 @@ def startSearch(player_id):  # get room information
 
 @app.route('/register/<email>')
 def register_new(email):  # register new users
-    new_player = {
-        email: {
-            "x": 0.0,
-            "y": 0.0
-        }
-    }
-    check_duplicate = check_redundancy(email)
-    if check_duplicate:
-        player.update(new_player)
-        with open('players.json', 'w') as file:
-            json.dump(player, file)
-        return "success"
-    return "failed to create id"
+   return str(mdb.insert_new_user(email))
 
 
 def check_redundancy(email):
