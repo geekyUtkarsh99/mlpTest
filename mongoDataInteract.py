@@ -30,5 +30,5 @@ def insert_new_user(email):
             "y": 0.0
         }
     }
-    end_result = users.insert_one(new_player)
-    return end_result
+    data = users.find({},{email:1})
+    return data
