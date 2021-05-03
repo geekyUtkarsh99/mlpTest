@@ -31,4 +31,7 @@ def insert_new_user(email):
         }
     }
     data = users.find({},{email:1})
-    return data
+    dats = []
+    for i in data:
+        dats.append(i)
+    return dats
