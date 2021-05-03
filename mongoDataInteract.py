@@ -11,5 +11,5 @@ def checkDataBaseExistance(db):
 
 def getUser():
     users = database.get_collection("users")
-    return users.pid1
+    return users
 
