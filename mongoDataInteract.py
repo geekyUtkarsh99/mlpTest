@@ -15,6 +15,6 @@ def getUser():
     cols = users.find()
     i = 0
     for u in cols:
-        data[i] = u
+        data.append(u)
         i+=1
     return data
