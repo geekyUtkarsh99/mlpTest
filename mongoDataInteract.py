@@ -10,6 +10,6 @@ def checkDataBaseExistance(db):
 
 
 def getUser():
-    users = database.get_collection("users")
+    users = database['users']
     return users
 
