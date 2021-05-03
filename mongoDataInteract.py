@@ -13,10 +13,9 @@ def checkDataBaseExistance(db):
 def getUser():
     users = database['users']
     data = []
-    cols = users.find()
-    dats = json.load(cols)
+    cols = users.find({"pid1"})
     i = 0
     for u in cols:
         data.append(u)
         i+=1
-    return dats
+    return data
