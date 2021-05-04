@@ -30,7 +30,7 @@ def insert_new_user(email):
         "x": 0.0,
         "y": 0.0
     }
-    data = users.find({"email": email}, {"_id": 0})
+    data = users.find_one({"email": email}, {"_id": 0})
 
     dats = ""
     for i in data:
