@@ -32,11 +32,8 @@ def insert_new_user(email):
     }
     data = users.find_one({"email": email}, {"_id": 0})
 
-    dats = ""
-    for i in data:
-        dats += str(i)
-    if dats is not None or data is not None:
-        return dats
+    if data is not None:
+        return "player exists"
     else :
         users.insert_one(new_player)
         return "success"
