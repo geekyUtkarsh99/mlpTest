@@ -18,7 +18,7 @@ def getUser(email):
     data = ""
     cols = users.find({"email" : email}, {"_id": 0})
     for u in cols:
-        data+=data
+        data+=u
     return data
 
 
