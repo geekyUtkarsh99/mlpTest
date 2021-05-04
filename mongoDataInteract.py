@@ -31,12 +31,5 @@ def insert_new_user(email):
             "y": 0.0
         }
     }
-    data = users.find({"_id": 0, email: 1})
-    dats = ""
-    for i in data:
-        dats+=str(i)
-    if jsonify(dats) is not None:
-        return dats
-    else:
-        users.insert_one(new_player)
-        return "registered successfully"
+    data = users.count({},{"_id": 0, email: 1})
+    return data
