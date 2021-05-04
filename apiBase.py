@@ -40,7 +40,7 @@ def showRoom(room_id):  # access room
 
 @app.route('/gameplay/search/<player_id>')
 def startSearch(player_id):  # get room information
-    return jsonify(dh.addActivePlayers(player_id))
+    return jsonify(mdb.insert_to_searchQueue(player_id))
 
 
 @app.route('/register/<email>')

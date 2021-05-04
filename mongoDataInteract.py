@@ -16,9 +16,9 @@ def checkDataBaseExistance(db):
 def getUser(email):
     users = database['users']
     data = ""
-    cols = users.find({"email" : email}, {"_id": 0})
+    cols = users.find({"email": email}, {"_id": 0})
     for u in cols:
-        data+=str(u)
+        data += str(u)
     return data
 
 
@@ -29,10 +29,18 @@ def insert_new_user(email):
         "y": 0.0
     }
     data = users.find_one({"email": email}, {"_id": 0})
-
+    # check availability
     if data is not None:
         return "player exists"
-    else :
+    else:
         users.insert_one(new_player)
         return "success"
 
+
+def insert_to_searchQueue(player_id):
+    searchRoom = users["search"]
+    cols = searchRoom.find({},{"_id":0})
+    data = ""
+    for i in cols:
+        data+=str(i)
+    return data
