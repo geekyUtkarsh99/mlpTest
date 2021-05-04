@@ -24,13 +24,13 @@ def home():
 
 @app.route('/checkSet', methods=['GET'])
 def getDataBases():
-    return str(mdb.getUser())
+    return str(mdb.getUser(None))
 
 
 # search players information
 @app.route('/pId/<unique_id>')
 def getUser(unique_id):
-    return jsonify(player[unique_id])
+    return jsonify(mdb.getUser(unique_id))
 
 
 @app.route('/gameplay/<room_id>')
