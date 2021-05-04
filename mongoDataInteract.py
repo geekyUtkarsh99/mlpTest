@@ -35,7 +35,7 @@ def insert_new_user(email):
     for i in data:
         dats.append(i)
     if dats is not None:
-        return "user already exists"
+        return dats
     else:
         users.insert_one(new_player)
         return "registered successfully"
