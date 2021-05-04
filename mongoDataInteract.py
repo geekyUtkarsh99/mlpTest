@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from flask import jsonify
 import json
 
 client = MongoClient("mongodb+srv://geekyUtkarsh99:utkarsh99@cluster0.hkw3v.mongodb.net/test")
@@ -34,7 +35,7 @@ def insert_new_user(email):
     dats = ""
     for i in data:
         dats+=str(i)
-    if dats is not None:
+    if jsonify(dats) is not None:
         return dats
     else:
         users.insert_one(new_player)
