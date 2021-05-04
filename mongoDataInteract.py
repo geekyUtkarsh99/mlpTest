@@ -26,15 +26,14 @@ def getUser(email):
 
 def insert_new_user(email):
     new_player = {
-        email: {
-            "x": 0.0,
-            "y": 0.0
-        }
+        "email": email,
+        "x": 0.0,
+        "y": 0.0
     }
-    data = users.find({"players":email},{})
+    data = users.find({"email": email}, {"-id": 0})
 
     dats = ""
     for i in data:
-        dats+=str(i)
+        dats += str(i)
 
     return dats
