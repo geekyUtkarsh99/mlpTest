@@ -15,12 +15,10 @@ def checkDataBaseExistance(db):
 
 def getUser(email):
     users = database['users']
-    data = []
-    cols = users.find({}, {"_id": 0, email: 1})
-    i = 0
+    data = ""
+    cols = users.find({"email" : email}, {"_id": 0})
     for u in cols:
-        data.append(u)
-        i += 1
+        data+=data
     return data
 
 
