@@ -31,7 +31,7 @@ def insert_new_user(email):
             "y": 0.0
         }
     }
-    data = users.find({},{"players":email})
+    data = users.find({"players":email},{})
 
     dats = ""
     for i in data:
