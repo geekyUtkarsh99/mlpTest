@@ -31,9 +31,9 @@ def insert_new_user(email):
         }
     }
     data = users.find({}, {"_id": 0, email: 1})
-    dats = []
+    dats = ""
     for i in data:
-        dats.append(i)
+        dats+=str(i)
     if dats is not None:
         return dats
     else:
