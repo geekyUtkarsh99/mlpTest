@@ -30,10 +30,14 @@ def insert_new_user(email):
         "x": 0.0,
         "y": 0.0
     }
-    data = users.find({"email": email}, {"-id": 0})
+    data = users.find({"email": email}, {"_id": 0})
 
     dats = ""
     for i in data:
         dats += str(i)
+    if dats is not None:
+        return "player already exists"
+    else :
+        users.insert_one(new_player)
+        return "success"
 
-    return dats
