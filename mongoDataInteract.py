@@ -31,5 +31,10 @@ def insert_new_user(email):
             "y": 0.0
         }
     }
-    data = users.count({},{"_id": 0, email: 1})
-    return data
+    data = users.find({"players":email})
+
+    dats = ""
+    for i in data:
+        dats+=str(i)
+
+    return dats
