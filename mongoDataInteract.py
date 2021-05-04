@@ -31,7 +31,7 @@ def insert_new_user(email):
             "y": 0.0
         }
     }
-    data = users.find({}, {"_id": 0, email: 1})
+    data = users.find({"_id": 0, email: 1})
     dats = ""
     for i in data:
         dats+=str(i)
