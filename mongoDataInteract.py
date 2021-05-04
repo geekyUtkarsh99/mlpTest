@@ -39,8 +39,8 @@ def insert_new_user(email):
 
 def insert_to_searchQueue(player_id):
     searchRoom = users["search"]
-    cols = searchRoom.find({},{"_id":0})
+    cols = searchRoom.find({}, {"_id": 0, "actives": 1})
     data = ""
     for i in cols:
-        data+=str(i)
+        data += str(i)
     return data
