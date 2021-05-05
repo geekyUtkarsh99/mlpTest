@@ -57,7 +57,7 @@ def insert_to_searchQueue(player_id):
 
     actives = jsonify(data)
     active = actives["actives"]
-    return data
+    return active
 
 
 def create_room(player1, player2):
