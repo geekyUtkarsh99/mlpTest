@@ -55,7 +55,7 @@ def insert_to_searchQueue(player_id):
     #     searchRoom.update({}, {"$set": {
     #         "actives": list_of_items}})
 
-    actives = jsonify(data)
+    actives = json.loads(data)
     active = actives["actives"]
     return active
 
