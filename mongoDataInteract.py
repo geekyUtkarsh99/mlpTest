@@ -44,7 +44,7 @@ def insert_to_searchQueue(player_id):
     for i in cols:
         data += str(i)
     actives = jsonify(data)
-    list_of_items = list(actives["actives"])
+    list_of_items = actives["actives"]
     list_of_items.append(player_id)
     while len(list_of_items) % 2 == 0:
         player1 = list_of_items[0]
