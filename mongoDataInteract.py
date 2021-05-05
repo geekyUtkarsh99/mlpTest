@@ -55,6 +55,7 @@ def insert_to_searchQueue(player_id):
     #     searchRoom.update({}, {"$set": {
     #         "actives": list_of_items}})
 
+    data = data.replace('\'','\"');
     actives = json.loads(data)
     active = actives["actives"]
     return active
