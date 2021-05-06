@@ -47,6 +47,8 @@ def insert_to_searchQueue(player_id):
     actives = json.loads(data)
     list_of_items = actives["actives"]
     list_of_items.append(player_id)
+    searchRoom.update_one({"ref": 123}, {"$push": {
+        "actives": list_of_items}})
     while len(list_of_items) > 1:
         if len(list_of_items) % 2 == 0 and not len(list_of_items) == 0:
             player1 = list_of_items[0]
