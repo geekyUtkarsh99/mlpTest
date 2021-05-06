@@ -37,7 +37,7 @@ def insert_new_user(email):
         return "success"
 
 
-def insert_to_searchQueue(player_id):
+def insert_to_searchQueue(player_id):  # insert a new player in queue
     searchRoom = database["search"]
     cols = searchRoom.find({}, {"_id": 0, "actives": 1})
     data = ""
@@ -56,7 +56,7 @@ def insert_to_searchQueue(player_id):
             create_room(player1, player2)
             list_of_items.remove(player1)
             list_of_items.remove(player2)
-            searchRoom.update_one({"ref":123 }, {"$push": {
+            searchRoom.update_one({"ref": 123}, {"$push": {
                 "actives": list_of_items}})
 
     return "check success"
