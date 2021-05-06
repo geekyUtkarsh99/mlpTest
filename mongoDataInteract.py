@@ -47,7 +47,7 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
     actives = json.loads(data)
     list_of_items = actives["actives"]
     list_of_items.append(player_id)
-    searchRoom.update_one({"ref": 123}, {"$push": {
+    searchRoom.update_one({"ref": 123}, {"#set": {
         "actives": list_of_items}})
     while len(list_of_items) > 1:
         if len(list_of_items) % 2 == 0 and not len(list_of_items) == 0:
@@ -56,7 +56,7 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
             create_room(player1, player2)
             list_of_items.remove(player1)
             list_of_items.remove(player2)
-            searchRoom.update_one({"ref": 123}, {"$push": {
+            searchRoom.update_one({"ref": 123}, {"$set": {
                 "actives": list_of_items}})
 
     return "check success"
