@@ -80,5 +80,5 @@ def get_room_info(player_id):
     data = ""
     for i in cols:
         data += str(i)
-    data = data.replace('\'', '\"')
+
     return data
