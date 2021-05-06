@@ -35,7 +35,7 @@ def getUser(unique_id):
 
 @app.route('/gameplay/<room_id>')
 def showRoom(room_id):  # access room
-    return jsonify(roomList[room_id])
+    return jsonify(mdb.get_room_info(room_id))
 
 
 @app.route('/gameplay/search/<player_id>')

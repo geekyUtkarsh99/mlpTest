@@ -62,14 +62,23 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
     return "check success"
 
 
-def create_room(player1, player2):
+def create_room(player1, player2):  # create a new server room
     rooms = database["rooms"]
-    key = "newRoomKey" + str(player1) + str(player2)
     newRoom = {
 
-        key: [
+        "newRoomKey": [
             player1, player2
         ]
 
     }
     rooms.insert_one(newRoom)
+
+
+def get_room_info(player_id):
+    rooms = database["rooms"]
+    cols = rooms.find({"newRoomKey": {"$eq": player_id}}, {"newRoomKey": 1})
+    data = ""
+    for i in cols:
+        data += str(i)
+    data = data.replace('\'', '\"')
+    return data
