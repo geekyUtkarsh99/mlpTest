@@ -43,22 +43,21 @@ def insert_to_searchQueue(player_id):
     data = ""
     for i in cols:
         data += str(i)
-    # actives = jsonify(data)
-    # list_of_items = actives["actives"]
-    # list_of_items.append(player_id)
-    # while len(list_of_items) % 2 == 0:
-    #     player1 = list_of_items[0]
-    #     player2 = list_of_items[1]
-    #     create_room(player1, player2)
-    #     list_of_items.remove(player1)
-    #     list_of_items.remove(player2)
-    #     searchRoom.update({}, {"$set": {
-    #         "actives": list_of_items}})
-
-    data = data.replace('\'','\"');
+    data = data.replace('\'', '\"');
     actives = json.loads(data)
-    active = actives["actives"]
-    return active
+    list_of_items = actives["actives"]
+    list_of_items.append(player_id)
+    if len(list_of_items) > 1:
+      while len(list_of_items) % 2 == 0:
+        player1 = list_of_items[0]
+        player2 = list_of_items[1]
+        create_room(player1, player2)
+        list_of_items.remove(player1)
+        list_of_items.remove(player2)
+        searchRoom.update({}, {"$set": {
+            "actives": list_of_items}})
+
+    return "check success"
 
 
 def create_room(player1, player2):
