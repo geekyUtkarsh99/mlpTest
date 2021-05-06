@@ -80,5 +80,12 @@ def get_room_info(player_id):
     data = ""
     for i in cols:
         data += str(i)
-
     return data
+
+def update_player(player_id,x,y):
+    players = database["users"]
+
+    players.find_and_modify({"email": player_id},{"$set":{"x":x}})
+    players.find_and_modify({"email": player_id}, {"$set": {"y": y}})
+
+    return "success"

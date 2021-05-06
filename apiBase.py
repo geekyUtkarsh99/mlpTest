@@ -2,6 +2,7 @@ from flask import Flask as fsk
 import dataHandle as dh
 import threading
 from flask import jsonify
+from flask import request
 import mongoDataInteract as mdb
 import json
 
@@ -53,6 +54,11 @@ def check_redundancy(email):
         if email == i:
             return False
     return True
+
+@app.route('/gameplay/update/<player_id>/<x>/<y>')
+def update_player(player_id,x,y):
+
+
 
 
 if __name__ == "__main__":
