@@ -47,8 +47,8 @@ def insert_to_searchQueue(player_id):
     actives = json.loads(data)
     list_of_items = actives["actives"]
     list_of_items.append(player_id)
-    if len(list_of_items) > 1:
-        while len(list_of_items) % 2 == 0 and not len(list_of_items) == 0:
+    while len(list_of_items) > 1:
+        if len(list_of_items) % 2 == 0 and not len(list_of_items) == 0:
             player1 = list_of_items[0]
             player2 = list_of_items[1]
             create_room(player1, player2)
