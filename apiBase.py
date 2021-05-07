@@ -31,17 +31,17 @@ def getDataBases():
 # search players information
 @app.route('/pId/<unique_id>')
 def getUser(unique_id):
-    return jsonify(mdb.getUser(unique_id))
+    return str(mdb.getUser(unique_id))
 
 
 @app.route('/gameplay/<room_id>')
 def showRoom(room_id):  # access room
-    return jsonify(mdb.get_room_info(room_id))
+    return str(mdb.get_room_info(room_id))
 
 
 @app.route('/gameplay/search/<player_id>')
 def startSearch(player_id):  # get room information
-    return jsonify(mdb.insert_to_searchQueue(player_id))
+    return str(mdb.insert_to_searchQueue(player_id))
 
 
 @app.route('/register/<email>')
