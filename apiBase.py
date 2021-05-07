@@ -46,7 +46,7 @@ def startSearch(player_id):  # get room information
 
 @app.route('/register/<email>')
 def register_new(email):  # register new users
-   return str(mdb.insert_new_user(email))
+    return str(mdb.insert_new_user(email))
 
 
 def check_redundancy(email):
@@ -55,10 +55,10 @@ def check_redundancy(email):
             return False
     return True
 
-@app.route('/gameplay/update/<player_id>/<x>/<y>')
-def update_player(player_id,x,y):
-   return mdb.update_player(player_id,x,y)
 
+@app.route('/gameplay/update/<player_id>/<x>/<y>')
+def update_player(player_id, x, y):  # update user data
+    return mdb.update_player(player_id, x, y)
 
 
 if __name__ == "__main__":
