@@ -43,9 +43,10 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
     data = ""
     for i in cols:
         data += str(i)
-    data = data.replace('\'', '\"');
+    data = data.replace('\'', '\"')
     actives = json.loads(data)
     list_of_items = actives["actives"]
+    checker =  checkConcurancy(list_of_items,player_id)
     list_of_items.append(player_id)
     searchRoom.update_one({"ref": 123}, {"$set": {
         "actives": list_of_items}})
@@ -60,6 +61,17 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
                 "actives": list_of_items}})
 
     return "check success"
+
+
+def checkConcurancy(list_items, player_id):
+    for i in list_items:
+        if i == player_id:
+
+            list_items.remove(player_id)
+
+            return True
+        else:
+            return False
 
 
 def create_room(player1, player2):  # create a new server room
