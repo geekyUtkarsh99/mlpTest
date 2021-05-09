@@ -56,9 +56,9 @@ def check_redundancy(email):
     return True
 
 
-@app.route('/gameplay/update/<player_id>/<x>/<y>')
-def update_player(player_id, x, y):  # update user data
-    return mdb.update_player(player_id, x, y)
+@app.route('/gameplay/update/<player_id>/<x>/<y>/<status>')
+def update_player(player_id, x, y,status):  # update user data
+    return mdb.update_player(player_id, x, y,status)
 
 
 @app.route('/gameplay/delete/<player_id>')

@@ -95,16 +95,17 @@ def get_room_info(player_id):
     return data
 
 
-def update_player(player_id, x, y):
+def update_player(player_id, x, y, status):  # update database
     players = database["users"]
 
     players.find_and_modify({"email": player_id}, {"$set": {"x": x}})
     players.find_and_modify({"email": player_id}, {"$set": {"y": y}})
+    players.find_and_modify({"email": player_id}, {"$set": {"status": status}})
 
     return "success"
 
 
 def delete_room(player_id):  # delete a room after usage
     rooms = database["rooms"]
-    rooms.delete_one({"newRoomKey":{"$eq":player_id}})
+    rooms.delete_one({"newRoomKey": {"$eq": player_id}})
     return "success"
