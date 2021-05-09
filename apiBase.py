@@ -61,5 +61,10 @@ def update_player(player_id, x, y):  # update user data
     return mdb.update_player(player_id, x, y)
 
 
+@app.route('/gameplay/delete/<player_id>')
+def deleteRoom(player_id):
+    return str(mdb.delete_room(player_id))
+
+
 if __name__ == "__main__":
     app.run(port=8081, host='0.0.0.0')

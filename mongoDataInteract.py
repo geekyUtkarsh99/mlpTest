@@ -102,3 +102,9 @@ def update_player(player_id, x, y):
     players.find_and_modify({"email": player_id}, {"$set": {"y": y}})
 
     return "success"
+
+
+def delete_room(player_id):  # delete a room after usage
+    rooms = database["rooms"]
+    rooms.delete_one({"newRoomKey":{"$eq":player_id}})
+    return "success"
