@@ -26,7 +26,8 @@ def insert_new_user(email):
     new_player = {
         "email": email,
         "x": 0.0,
-        "y": 0.0
+        "y": 0.0,
+        "status": "inactive"
     }
     data = users.find_one({"email": email}, {"_id": 0})
     # check availability
@@ -46,7 +47,9 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
     data = data.replace('\'', '\"')
     actives = json.loads(data)
     list_of_items = actives["actives"]
-    checker =  checkConcurancy(list_of_items,player_id)
+    checker = checkConcurancy(list_of_items, player_id)
+    if checker:  # filter to check redundancy
+        list_of_items.remove(player_id)
     list_of_items.append(player_id)
     searchRoom.update_one({"ref": 123}, {"$set": {
         "actives": list_of_items}})
@@ -63,13 +66,9 @@ def insert_to_searchQueue(player_id):  # insert a new player in queue
     return "check success"
 
 
-
 def checkConcurancy(list_items, player_id):
     for i in list_items:
         if i == player_id:
-
-            list_items.remove(player_id)
-
             return True
         else:
             return False
